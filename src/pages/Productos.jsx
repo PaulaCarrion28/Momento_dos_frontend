@@ -9,38 +9,44 @@ const productos = [
 
 const Productos = () => {
   return (
-    <div style={{ backgroundColor: '#1a1a1a', color: '#fff', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px', fontFamily: 'sans-serif' }}>
+    <div style={{ backgroundColor: '#ffffff', color: '#111', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px', fontFamily: 'sans-serif' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
 
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: '900', letterSpacing: '4px', marginBottom: '12px' }}>
+          <h2 style={{ fontSize: '2.2rem', fontWeight: '900', letterSpacing: '4px', marginBottom: '12px', color: '#111' }}>
             NUESTRA COLECCIÓN
           </h2>
-          <p style={{ color: '#999' }}>Estilo urbano para cada ocasión</p>
+          <p style={{ color: '#666' }}>Estilo urbano para cada ocasión</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
           {productos.map((producto) => (
             <div
               key={producto.id}
-              style={{ backgroundColor: '#1e1e1e', border: '1px solid #2a2a2a', padding: '32px', transition: 'border-color 0.2s' }}
-              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#f5a623'}
-              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#2a2a2a'}
+              style={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '4px', overflow: 'hidden', transition: 'box-shadow 0.2s' }}
+              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)'}
+              onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
             >
-              <div style={{ height: '180px', backgroundColor: '#2a2a2a', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem' }}>
-                👕
+              {/* Imagen placeholder */}
+              <div style={{ height: '220px', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="#9ca3af" width="64" height="64">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '8px' }}>{producto.nombre}</h3>
-              <p style={{ color: '#888', fontSize: '0.9rem', marginBottom: '20px' }}>{producto.material}</p>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '1.5rem', fontWeight: '800', color: '#f5a623' }}>€{producto.precio}</span>
-                <button
-                  style={{ backgroundColor: '#f5a623', color: '#000', border: 'none', padding: '10px 24px', fontWeight: '800', letterSpacing: '2px', fontSize: '0.8rem', cursor: 'pointer' }}
-                  onMouseEnter={(e) => e.target.style.opacity = '0.85'}
-                  onMouseLeave={(e) => e.target.style.opacity = '1'}
-                >
-                  AÑADIR
-                </button>
+
+              <div style={{ padding: '20px' }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '6px', color: '#111' }}>{producto.nombre}</h3>
+                <p style={{ color: '#888', fontSize: '0.9rem', marginBottom: '16px' }}>{producto.material}</p>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '1.4rem', fontWeight: '800', color: '#111' }}>€{producto.precio}</span>
+                  <button
+                    style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '10px 20px', fontWeight: '700', letterSpacing: '1px', fontSize: '0.8rem', cursor: 'pointer', borderRadius: '2px' }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#333'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#111'}
+                  >
+                    AÑADIR
+                  </button>
+                </div>
               </div>
             </div>
           ))}
